@@ -17,7 +17,7 @@ Ce document explique comment importer et synchroniser les **Design Tokens** Figm
 
 ### 1. **Export Figma**
 
-- Le designer exporte les variables Figma via le plugin, ce qui génère les fichiers JSON dans [`tokens/import`](https://github.com/Pecunia-App/pecunia-front/tree/feat/150-fondations-scss/tokens/import).
+- Le designer exporte les variables Figma via le plugin, ce qui génère les fichiers JSON dans [`tokens/import`](https://github.com/Pecunia-App/pecunia-front/tree/dev/tokens/import).
 
 ### 2. **Génération des SCSS et du mapping avec Style Dictionary**
 
@@ -28,7 +28,7 @@ Ce document explique comment importer et synchroniser les **Design Tokens** Figm
 - Cette commande fait tout le travail pour toi :
 
   - Elle transforme les fichiers JSON de Figma en fichiers SCSS utilisables dans Angular.
-  - Elle crée un fichier de mapping ([`src/styles/themes/_tokens.map.scss`](https://github.com/Pecunia-App/pecunia-front/tree/feat/150-fondations-scss/src/styles/themes/_tokens.map.scss)) qui relie chaque nom de variable à sa valeur pour chaque thème (clair/sombre).
+  - Elle crée un fichier de mapping ([`src/styles/themes/_tokens.map.scss`](https://github.com/Pecunia-App/pecunia-front/tree/dev/src/styles/themes/_tokens.map.scss)) qui relie chaque nom de variable à sa valeur pour chaque thème (clair/sombre).
 
 - **Pourquoi faire comme ça ?**
   - Pour être sûr que les couleurs et autres variables sont toujours à jour entre Figma et le code.
@@ -69,12 +69,12 @@ src/styles/themes/
 
 **Étapes à suivre à chaque modification des tokens dans Figma :**
 
-1. **Exporter les nouveaux JSON depuis Figma** dans [`tokens/import`](https://github.com/Pecunia-App/pecunia-front/tree/feat/150-fondations-scss/tokens/import).
+1. **Exporter les nouveaux JSON depuis Figma** dans [`tokens/import`](https://github.com/Pecunia-App/pecunia-front/tree/dev/tokens/import).
 2. **Générer les SCSS et le mapping à jour** :
    ```bash
    npm run build-color-token
    ```
-3. **Vérifier que les fichiers dans [`src/styles/tokens`](https://github.com/Pecunia-App/pecunia-front/tree/feat/150-fondations-scss/src/styles/tokens) et [`src/styles/themes`](https://github.com/Pecunia-App/pecunia-front/tree/feat/150-fondations-scss/src/styles/themes) sont bien à jour.**
+3. **Vérifier que les fichiers dans [`src/styles/tokens`](https://github.com/Pecunia-App/pecunia-front/tree/dev/src/styles/tokens) et [`src/styles/themes`](https://github.com/Pecunia-App/pecunia-front/tree/dev/src/styles/themes) sont bien à jour.**
 4. **Relancer l’application Angular** si besoin.
 
 ---

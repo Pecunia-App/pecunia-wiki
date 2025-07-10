@@ -2,7 +2,7 @@
 
 ## `abstracts/_Layout.scss`
 
-le fichier [`layout.scss`](https://github.com/Pecunia-App/pecunia-front/blob/feat/150-fondations-scss/src/styles/abstracts/_layout.scss) contient les variables pour les espacement et les radius utilisables directement dans le scss
+le fichier [`layout.scss`](https://github.com/Pecunia-App/pecunia-front/blob/dev/src/styles/abstracts/_layout.scss) contient les variables pour les espacement et les radius utilisables directement dans le scss
 
 ```scss
 $space-2: px-to-rem(2); // 2px
