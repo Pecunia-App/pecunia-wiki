@@ -344,19 +344,79 @@ chore/&lt;num-ticket-taiga&gt;update-dependencies
 <li><a href="https://whimsical.com/git-workflow-5HGgyA6smtckHpEm2qhJDE">Aide - Workflow git</a></li>
 <li><a href="https://media-protected.taiga.io/attachments/8/6/3/8/1f118b484ade508521e6b2a2a08b912e30169a967ee0f4384f0ade6527c1/bdd_conclusion.pdf?token=aG-SfA%3AJ0iFDAJWfeAeiMvQByMiAz6mbY-TQDECoEJclbEJ2xO7fgbU5e61dzLWKrB7pqxPSmWi94YHb93r8WpUkwVnHw#_taiga-refresh=wikipage:3605487">Conclusion</a></li>
 </ul>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="documents-obligatoires"><a class="header" href="#documents-obligatoires">Documents obligatoires</a></h1>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="résumé-cahier-des-charges"><a class="header" href="#résumé-cahier-des-charges">Résumé Cahier des Charges</a></h1>
+<p><a href="https://docs.google.com/document/d/1zdfWNbLOVNDkv9PzjExoF7eMryWRRTJz6Q-ARtnvIxs/edit?tab=t.0">Daniel Cahier des charges projet</a></p>
+<p><a href="https://docs.google.com/document/d/1fY8sZrght56zbOffhCjEz12v1ABr2uYiNSZNQd-5EH4/edit?tab=t.0">Thomas Cahier des Charges</a></p>
+<h2 id="objectif-du-projet"><a class="header" href="#objectif-du-projet">Objectif du projet</a></h2>
+<p>L'objectif principal du projet est de développer une application dédiée à la gestion de budget, axée sur les concepts de simplicité et de contrôle financier.</p>
+<p>La vision du projet vise à créer un outil pour les utilisateurs souhaitant mieux gérer leurs finances personnelles ou familiales.</p>
+<p>L'application doit se distinguer par sa facilité d'utilisation, offrant une expérience fluide aussi bien lors de la planification budgétaire que lors du suivi des dépenses quotidiennes.</p>
+<p>L'application permettra à un utilisateur connecté de gérer un portefeuille et les transactions associées.</p>
+<p>Une attention particulière est portée à l'intuitivité de l'application, garantissant une saisie aisée des transactions et des catégories budgétaires par les utilisateurs.</p>
+<p>Les choix de couleurs s'aligneront sur une charte graphique propre à l'univers de la finance, tout en étant pensés pour être accessibles aux personnes daltoniennes. De même, les polices d'écriture seront choisies pour leur simplicité et leur accessibilité aux personnes atteintes de dyslexie.</p>
+<p>L'approche méthodologique adoptée est celle de l'organisation SCRUM, avec des sprints hebdomadaires intégrant le principe d'intégration continue. Cette méthodologie agile permet une gestion efficace du développement, favorisant la flexibilité et la collaboration au sein de l'équipe de travail.</p>
+<h2 id="fonctionnalités-clés"><a class="header" href="#fonctionnalités-clés">Fonctionnalités clés</a></h2>
+<p>La fonctionnalité centrale du projet, le Minimum Viable Product (MVP), consiste en la mise en œuvre du CRUD (Create, Read, Update, Delete) pour les transactions.</p>
+<p>L'accès à ces fonctionnalités sera restreint aux utilisateurs connectés et inclura les actions suivantes :</p>
+<ul>
+<li>Création d'une transaction</li>
+<li>Consultation d'une transaction</li>
+<li>Modification d'une transaction</li>
+<li>Suppression d'une transaction</li>
+</ul>
+<p>De plus, l'application inclura les fonctionnalités suivantes :</p>
+<ul>
+<li>CRUD des catégories avec gestion des icônes</li>
+<li>CRUD sur les fournisseurs</li>
+<li>Modification du profil utilisateur</li>
+</ul>
+<p>L'utilisation de l'application en tant qu'utilisateur connecté nécessitera les actions supplémentaires suivantes :</p>
+<ul>
+<li>Formulaire d'inscription</li>
+<li>Formulaire de connexion</li>
+</ul>
+<h2 id="technologies-et-architecture"><a class="header" href="#technologies-et-architecture">Technologies et architecture</a></h2>
+<p>Développement de l’application avec le langage de programmation Java via le framework Spring, ce qui induit une architecture Modèle Vue Contrôleur.</p>
+<p>Développement Backend :</p>
+<ul>
+<li>Langage de Programmation : Java</li>
+<li>Framework : Spring (Modèle Vue Contrôleur)</li>
+<li>Système de Gestion de Base de Données : MySQL</li>
+<li>ORM : Hibernate (Gestion de la base de données avec Spring)</li>
+<li>Correcteur de code : Checkstyle</li>
+</ul>
+<p>Développement Frontend :</p>
+<ul>
+<li>Framework : Angular</li>
+<li>Bibliothèque CSS : Bootstrap</li>
+<li>Préprocesseur CSS : SASS (pour la cohérence avec la maquette visuelle)</li>
+<li>Langage de Template : HTML5, CSS3</li>
+</ul>
+<h2 id="sécurité"><a class="header" href="#sécurité">Sécurité</a></h2>
+<p>La sécurité est une priorité dans le développement de cette application de gestion de budget.</p>
+<p>Nous utilisons des DTO (Data Transfer Objects) pour sécuriser les échanges de données entre les couches de l'application.</p>
+<p>Les communications entre le client et le serveur sont protégées par des protocoles de chiffrement, et les informations sensibles sont stockées de manière sécurisée dans la base de données.</p>
+<p>Des pratiques de développement sécurisé, telles que la validation des entrées utilisateur et la prévention des injections SQL, sont rigoureusement appliquées.</p>
+<p>L'authentification des utilisateurs est renforcée par l'utilisation de JWT (JSON Web Tokens) pour les sessions utilisateur, assurant ainsi une gestion sécurisée des accès.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="sitemap"><a class="header" href="#sitemap">Sitemap</a></h1>
+<p><img src="titre/docs-titre/gloomap_d136b1cf.png" alt="sitemap" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="product-backlog"><a class="header" href="#product-backlog">Product Backlog</a></h1>
+<p><a href="https://docs.google.com/spreadsheets/d/1mPxCfTjogZQJJmOJJbBSgk2J5FewUbL19JmPfRjqooY/edit?gid=0#gid=0">Product Backlog</a></p>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="conception-de-bdd--uml-"><a class="header" href="#conception-de-bdd--uml-">Conception de BDD + UML :</a></h1>
 <hr />
 <h2 id="mld--modÈle-physique-de-donnÉes---diagramme-de-classe--diagramme-séquence-"><a class="header" href="#mld--modÈle-physique-de-donnÉes---diagramme-de-classe--diagramme-séquence-">MLD + MODÈLE PHYSIQUE DE DONNÉES  + Diagramme de classe + Diagramme séquence :</a></h2>
 <p>Drawio : <a href="https://app.diagrams.net/?src=about#G1yuIcwr5naRDbpJvKWywAGntifsswMZHg#%7B%22pageId%22%3A%22-F2r_zDhWsfIRe05eEPR%22%7D">https://app.diagrams.net/?src=about#G1yuIcwr5naRDbpJvKWywAGntifsswMZHg#%7B%22pageId%22%3A%22-F2r_zDhWsfIRe05eEPR%22%7D</a></p>
 <h3 id="diagramme-de-cas-dusage-"><a class="header" href="#diagramme-de-cas-dusage-">Diagramme de cas d'usage :</a></h3>
 <p>LucidChart : <a href="https://lucid.app/lucidchart/c0417efa-c71c-479d-9d3f-c88048240679/edit?viewport_loc=-266%2C901%2C416%2C205%2C.Q4MUjXso07N&amp;invitationId=inv_b4b420aa-d55a-4500-b1de-c1563b326c42">https://lucid.app/lucidchart/c0417efa-c71c-479d-9d3f-c88048240679/edit?viewport_loc=-266%2C901%2C416%2C205%2C.Q4MUjXso07N&amp;invitationId=inv_b4b420aa-d55a-4500-b1de-c1563b326c42</a></p>
+<p><img src="conception/images/uml-diagramme-cas-utilisation.png" alt="UML - Diagramme cas utilisation" /></p>
 <hr />
 <h3 id="dictionnaire-de-données-"><a class="header" href="#dictionnaire-de-données-">Dictionnaire de données :</a></h3>
 <p>Google sheets : <a href="https://docs.google.com/spreadsheets/d/1p_G5ZhDzxSyXcsKZC1ZgbwwwVrPcOlQ_fioW7h5U2kQ/edit?gid=0#gid=0">https://docs.google.com/spreadsheets/d/1p_G5ZhDzxSyXcsKZC1ZgbwwwVrPcOlQ_fioW7h5U2kQ/edit?gid=0#gid=0</a></p>
 <hr />
 <h3 id="modÈle-conceptuel-de-donnÉes-"><a class="header" href="#modÈle-conceptuel-de-donnÉes-">MODÈLE CONCEPTUEL DE DONNÉES :</a></h3>
 <p>Début de MCD : <a href="https://media-protected.taiga.io/attachments/e/3/1/b/b69b9072ac9a9caa24b21746f17b0cad8d81325e4b145014594050346848/brainsto-bdd.png?token=aG-RnA%3AVukLZBHXZFSZ5g7fuUk6W5nCx1ODTOKQr77N3f8LsdxZihvdJlJgA_zKBVO3Ip1WzyyCDtkf-3T7Tz4EETa8Rg#_taiga-refresh=wikipage:3605769">lien</a></p>
-<p><img src="https://media-protected.taiga.io/attachments/2/0/8/a/726cb233dadaf8abc4ea770f0fe497d9d28ffe785db2bdde6c02d044b472/mcd.png?token=aG-RnA%3Ar86ACcX6wfFuaN-w7HYC3hVZ81ID0pXRSOVUhMBvKsKvqpsGcS2Y5nkpS_0W0I5sQ_Ne237erzfBTxP47p3QjQ#_taiga-refresh=wikipage:3609904" alt="" /></p>
+<p><img src="conception/images/mcd.png" alt="" /></p>
 <pre><code class="language-markdown">// MOOCODO MCD
 
 UTILISATEUR: email_utilisateur, mot de passe, nom, prénom, photo de profil
@@ -383,7 +443,7 @@ ICONE:nom_icone, url
 ETIQUETTE: nom_etiquette
 :
 </code></pre>
-<p><img src="https://media-protected.taiga.io/attachments/a/9/8/7/622ddad4377878b75c91d7e08bd6c144c2f87b704f940039bd56ee2e5712/image.png?token=aG-RnA%3AQoyqoiJzNVGUF4yR3MtaNUlmkSzf2ebU2mSYfCY_n5vHixD43modsPFN77Olo6wN75MoaOyYpFr6rO1zdYUnoQ#_taiga-refresh=wikipage:3789414" alt="" /></p>
+<p><img src="conception/images/mld.png" alt="" /></p>
 <pre><code class="language-plaintext">:
 :
 COMPOSER, 0N PORTEFEUILLE, 11 TRANSACTION
@@ -417,7 +477,7 @@ ICONE:nom_icone, url
 :
 :
 </code></pre>
-<p><img src="https://media-protected.taiga.io/attachments/a/b/5/7/d8cc016de74dbf6beda3d76fc54e1209d2215e474ce2811309c7d4202eb4/image.png?token=aG-RnA%3AT82PXNuOEShf_UZXMz3cH2_JX98lE3uJuP6uvwGbal_vHl8CMiD-jdeGUhjHgF2qVXvHsCEwBXH_lYBdO6dvxQ#_taiga-refresh=wikipage:3907615" alt="" /></p>
+<p><img src="conception/images/image.png" alt="" /></p>
 <p>:<br />
 :<br />
 CREATE, 11 PROVIDER, 0N USER<br />
@@ -442,7 +502,7 @@ CATEGORY: name, icon, color, type, is_global<br />
 INCLUDE, 0N CATEGORY, 11 TRANSACTION<br />
 :<br />
 :</p>
-<p><img src="https://media-protected.taiga.io/attachments/b/1/3/9/9c0868f396d181008bd148c4834b111ee3b9b6788b11e0d10d1928d53e30/image.png?token=aG-RnA%3ArYAhK3OHZq9zoUgV0pZh6Q7n1eyCMKmx3nKjl0QV5CMXHLsUsDoO_U8ThyWhaUYbrpZfplmQcm27OWIqYeF_dg#_taiga-refresh=wikipage:4118441" alt="" /></p>
+<p><img src="conception/images/image1.png" alt="" /></p>
 <p>:<br />
 :<br />
 CREATE, 11 PROVIDER, 0N USER<br />

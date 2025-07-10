@@ -13,6 +13,10 @@
 
 # Ressources pour le Titre
 - [Informations et Aides](titre/README.md)
+  - [Documents obligatoires](titre/docs-titre/README.MD)
+      - [Résumé Cahier des Charges](titre/docs-titre/résumé-cdc.md)
+      - [Sitemap](titre/docs-titre/sitemap.md)
+      - [Product Backlog](titre/docs-titre/product_backlog.md)
 
 # Conception
 
