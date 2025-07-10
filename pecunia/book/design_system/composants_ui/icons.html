@@ -1,0 +1,398 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Icons - Pecunia Docs</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Pecunia Docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="icons"><a class="header" href="#icons">Icons</a></h1>
+<h2 id="objectif"><a class="header" href="#objectif">Objectif</a></h2>
+<p>Le composant <code>IconComponent</code> est un composant Angular <strong>standalone</strong>, conçu pour afficher des icônes SVG issues de la librairie <strong>Lucide</strong> (stockées en local dans <code>assets/icons/lucide/</code>).<br />
+Il est utilisé dans le <strong>design system Pecunia</strong>, pour gérer toutes les icônes d’interface : boutons, menus, statuts, badges, etc.</p>
+<hr />
+<h2 id="définition"><a class="header" href="#définition">Définition</a></h2>
+<pre><code class="language-ts">export class IconComponent {
+  private readonly http = inject(HttpClient);
+
+  //déclaration des signaux =&gt; mini varialbles observables
+  readonly _name = signal&lt;string&gt;('');
+  readonly _size = signal&lt;IconSize&gt;('md');
+  readonly _ariaLabel = signal&lt;string&gt;('');
+  readonly _isDecorative = signal&lt;boolean&gt;(false);
+
+  //setter pour mettre à jour les inputs avec des signaux
+  @Input({ required: true }) set name(value: string) {
+    this._name.set(value);
+  }
+  @Input() set size(value: IconSize) {
+    this._size.set(value);
+  }
+  @Input() set ariaLabel(value: string) {
+    this._ariaLabel.set(value);
+  }
+  @Input() set isDecorative(value: boolean) {
+    this._isDecorative.set(value);
+  }
+</code></pre>
+<p>Ce composant est totalement <strong>réactif</strong> (via <code>signal()</code> et <code>computed()</code>), encapsulé, accessible et personnalisable.</p>
+<hr />
+<h2 id="propriétés-disponibles-input"><a class="header" href="#propriétés-disponibles-input">Propriétés disponibles (<code>@Input()</code>)</a></h2>
+<div class="table-wrapper"><table><thead><tr><th>Prop</th><th>Type</th><th>Obligatoire</th><th>Description</th></tr></thead><tbody>
+<tr><td><code>name</code></td><td><code>string</code></td><td>✅ Oui</td><td>Nom du fichier SVG (ex: <code>"plus"</code>, <code>"arrow-left"</code>)</td></tr>
+<tr><td><code>size</code></td><td><code>'xs' | 'sm' | 'md' | 'lg'</code></td><td>❌ Non</td><td>Taille logique, applique une classe CSS (<code>icon-size-md</code> par défaut)</td></tr>
+<tr><td><code>ariaLabel</code></td><td><code>string</code></td><td>❌ Non</td><td>Texte alternatif (accessibilité), utilisé si <code>isDecorative = false</code></td></tr>
+<tr><td><code>isDecorative</code></td><td><code>boolean</code></td><td>❌ Non</td><td>Si <code>true</code>, l’icône est masquée des lecteurs d’écran</td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="cas-dusages-typiques"><a class="header" href="#cas-dusages-typiques">Cas d’usages typiques</a></h2>
+<ul>
+<li>Icône seule dans un bouton d’action (delete, edit…)</li>
+<li>Icône dans une puce, un badge ou une ligne de tableau</li>
+<li>Icône décorative dans une UI (à cacher aux lecteurs d’écran)</li>
+</ul>
+<hr />
+<h2 id="icônes-décoratives-vs-informatives"><a class="header" href="#icônes-décoratives-vs-informatives">Icônes décoratives vs informatives</a></h2>
+<h3 id="une-icône-est-décorative-si-"><a class="header" href="#une-icône-est-décorative-si-">Une icône est <strong>décorative</strong> si :</a></h3>
+<ul>
+<li>Elle n'ajoute aucune information essentielle</li>
+<li>Elle accompagne un texte déjà explicite</li>
+<li>Elle est utilisée uniquement pour améliorer l'esthétique</li>
+</ul>
+<p><strong>Exemples décoratifs :</strong></p>
+<ul>
+<li>Un 🔒 à côté du mot « Connexion »</li>
+<li>Une icône 🛒 dans un bouton « Ajouter au panier »</li>
+<li>Un pictogramme 🎯 dans une carte qui a déjà un titre</li>
+</ul>
+<p>➡️ <strong>Accessibilité</strong> :</p>
+<ul>
+<li>Utiliser <code>[isDecorative]="true"</code> dans Pecunia (ce qui appliquera <code>aria-hidden="true"</code>)</li>
+<li><strong>Pas besoin</strong> de <code>ariaLabel</code> pour les icônes décoratives</li>
+</ul>
+<hr />
+<h3 id="une-icône-est-informative-si-"><a class="header" href="#une-icône-est-informative-si-">Une icône est <strong>informative</strong> si :</a></h3>
+<ul>
+<li>Elle remplace un texte</li>
+<li>Elle transmet une information visuelle (état, action)</li>
+<li>Elle est la seule information visible</li>
+</ul>
+<p><strong>Exemples informatifs :</strong></p>
+<ul>
+<li>Une 🗑️ seule dans un bouton ➜ signifie "Supprimer"</li>
+<li>Une icône ❗ dans un message ➜ signifie "Erreur"</li>
+<li>Une 👁️ dans un champ ➜ signifie "Afficher le mot de passe"</li>
+</ul>
+<p>➡️ <strong>Accessibilité</strong> :</p>
+<ul>
+<li><strong>Option 1</strong> : Fournir un <code>ariaLabel="Description"</code> directement sur l'icône</li>
+<li><strong>Option 2</strong> : Mettre <code>aria-label</code> sur l'élément parent (si l'icône est dans un élément interactif)</li>
+</ul>
+<hr />
+<h3 id="-règle-simple-à-retenir"><a class="header" href="#-règle-simple-à-retenir">📝 <strong>Règle simple à retenir</strong></a></h3>
+<blockquote>
+<p>Si l'icône peut être retirée <strong>sans perte d'information</strong>, elle est décorative.<br />
+Sinon, elle est informative et doit être accessible aux lecteurs d'écran.</p>
+</blockquote>
+<hr />
+<h2 id="exemples-concrets"><a class="header" href="#exemples-concrets">Exemples concrets</a></h2>
+<ul>
+<li>✅ <strong>Icône significative – Option 1</strong> (label sur l’icône)</li>
+</ul>
+<pre><code class="language-html">&lt;app-ui-icon name="trash" ariaLabel="Supprimer la transaction"&gt;&lt;/app-ui-icon&gt;
+</code></pre>
+<ul>
+<li>✅ <strong>Icône significative – Option 2</strong> (label sur le parent)</li>
+</ul>
+<pre><code class="language-html">&lt;button aria-label="Supprimer la transaction"&gt;
+  &lt;app-ui-icon name="trash" [isDecorative]="true"&gt;&lt;/app-ui-icon&gt;
+&lt;/button&gt;
+</code></pre>
+<ul>
+<li>✅ <strong>Icône décorative</strong></li>
+</ul>
+<pre><code class="language-html">&lt;button&gt;
+  &lt;app-ui-icon name="trash" [isDecorative]="true"&gt;&lt;/app-ui-icon&gt;
+  Supprimer la transaction
+&lt;/button&gt;
+</code></pre>
+<hr />
+<h3 id="cas-dusage-dans-le-iconcomponent"><a class="header" href="#cas-dusage-dans-le-iconcomponent">Cas d’usage dans le <code>IconComponent</code></a></h3>
+<div class="table-wrapper"><table><thead><tr><th>Situation</th><th><code>aria label</code></th><th><code>decorative</code></th></tr></thead><tbody>
+<tr><td>Icône seule dans un bouton</td><td><code>"Supprimer"</code></td><td><code>false</code></td></tr>
+<tr><td>Icône accompagnée d’un texte</td><td><code>""</code></td><td><code>true</code></td></tr>
+<tr><td>Icône de statut (succès, erreur…)</td><td><code>"Succès"</code></td><td><code>false</code></td></tr>
+<tr><td>Icône purement esthétique</td><td><code>""</code></td><td><code>true</code></td></tr>
+</tbody></table>
+</div>
+<hr />
+<h2 id="comment-ça-marche-"><a class="header" href="#comment-ça-marche-">Comment ça marche ?</a></h2>
+<p>Le composant :</p>
+<ul>
+<li>Résout le chemin SVG via un <code>computed()</code> :<br />
+<code>assets/icons/lucide/${name}.svg</code></li>
+<li>Applique une classe de taille (<code>icon-size-md</code>, <code>icon-size-lg</code>, etc.)</li>
+<li>Réagit à une erreur de chargement avec un fallback (<code>alert-circle.svg</code>)</li>
+</ul>
+<hr />
+<h2 id="bonnes-pratiques-dintégration"><a class="header" href="#bonnes-pratiques-dintégration">Bonnes pratiques d'intégration</a></h2>
+<ul>
+<li>Toujours utiliser ce composant plutôt que des balises <code>&lt;img&gt;</code> ou <code>&lt;svg&gt;</code> brutes</li>
+<li>Ne pas hardcoder le chemin de l’icône dans les composants parents</li>
+<li>Préférer les tailles logiques (<code>sm</code>, <code>md</code>, etc.) au lieu de fixer les pixels</li>
+<li>Respecter la séparation : le style (<code>.scss</code>) gère la taille réelle</li>
+</ul>
+<hr />
+<h2 id="gestion-couleur-de-licon"><a class="header" href="#gestion-couleur-de-licon">Gestion couleur de l'icon</a></h2>
+<p>L’icône est affichée via un <code>&lt;span&gt;</code> contenant une <code>mask-image</code> SVG.<br />
+La couleur est appliquée via <code>background-color: currentColor</code> en CSS.</p>
+<h3 id="pourquoi-utiliser-mask-image-au-lieu-de-img"><a class="header" href="#pourquoi-utiliser-mask-image-au-lieu-de-img">Pourquoi utiliser mask-image au lieu de img?</a></h3>
+<blockquote>
+<p>L'utilisation de mask-image offre plusieurs avantages importants :</p>
+<ul>
+<li>Héritage de couleur : Une icône avec mask-image peut hériter de la couleur du texte parent via currentColor, ce qui est difficile avec des images SVG classiques.</li>
+<li>Performance : Les masks CSS sont plus performants que les SVG injectés dans le DOM pour de nombreuses icônes.</li>
+<li>Flexibilité : On peut changer la couleur dynamiquement sans modifier le fichier SVG source</li>
+</ul>
+</blockquote>
+<h4 id="important--coloration-pour-les-icônes-sans-texte"><a class="header" href="#important--coloration-pour-les-icônes-sans-texte">Important : coloration pour les icônes sans texte</a></h4>
+<p>Pour les boutons ou éléments ne contenant que des icônes, il est impératif de définir la propriété CSS color dans le parent :</p>
+<pre><code class="language-html">&lt;!-- Composant bouton icône sans texte --&gt;
+&lt;button class="icon-only-button"&gt;
+  &lt;app-icon name="trash" ariaLabel="Supprimer" /&gt;
+&lt;/button&gt;
+</code></pre>
+<pre><code class="language-scss">// SCSS du composant parent
+.icon-only-button {
+  // IMPORTANT : définir la couleur même sans texte !
+  @include theme.themed-block(
+    (
+      color: 'text-neutral-default',
+      // Couleur pour l'icône
+    )
+  );
+}
+</code></pre>
+<h2 id="pour-le-dossier-cda"><a class="header" href="#pour-le-dossier-cda">Pour le dossier CDA</a></h2>
+<blockquote>
+<p>Le composant <code>IconComponent</code> respecte les principes du design system :</p>
+<ul>
+<li>réutilisable, autonome, testable</li>
+<li>conforme aux bonnes pratiques d’accessibilité</li>
+<li>basé sur la nouvelle API Angular <code>signal()</code> / <code>computed()</code> pour plus de lisibilité</li>
+</ul>
+<p>Il est centralisé dans <code>shared/</code> et documenté pour permettre son adoption par l’ensemble de l’équipe.</p>
+</blockquote>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../design_system/composants_ui/index.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../design_system/composants_ui/listes_icons.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../design_system/composants_ui/index.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../design_system/composants_ui/listes_icons.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>

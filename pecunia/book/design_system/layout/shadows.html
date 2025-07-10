@@ -1,0 +1,310 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light sidebar-visible" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Shadows - Pecunia Docs</title>
+
+
+        <!-- Custom HTML head -->
+
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="../../favicon.svg">
+        <link rel="shortcut icon" href="../../favicon.png">
+        <link rel="stylesheet" href="../../css/variables.css">
+        <link rel="stylesheet" href="../../css/general.css">
+        <link rel="stylesheet" href="../../css/chrome.css">
+        <link rel="stylesheet" href="../../css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="../../FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="../../fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" id="highlight-css" href="../../highlight.css">
+        <link rel="stylesheet" id="tomorrow-night-css" href="../../tomorrow-night.css">
+        <link rel="stylesheet" id="ayu-highlight-css" href="../../ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+
+        <!-- Provide site root and default themes to javascript -->
+        <script>
+            const path_to_root = "../../";
+            const default_light_theme = "light";
+            const default_dark_theme = "navy";
+        </script>
+        <!-- Start loading toc.js asap -->
+        <script src="../../toc.js"></script>
+    </head>
+    <body>
+    <div id="mdbook-help-container">
+        <div id="mdbook-help-popup">
+            <h2 class="mdbook-help-title">Keyboard shortcuts</h2>
+            <div>
+                <p>Press <kbd>←</kbd> or <kbd>→</kbd> to navigate between chapters</p>
+                <p>Press <kbd>S</kbd> or <kbd>/</kbd> to search in the book</p>
+                <p>Press <kbd>?</kbd> to show this help</p>
+                <p>Press <kbd>Esc</kbd> to hide this help</p>
+            </div>
+        </div>
+    </div>
+    <div id="body-container">
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                let theme = localStorage.getItem('mdbook-theme');
+                let sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            const default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? default_dark_theme : default_light_theme;
+            let theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            const html = document.documentElement;
+            html.classList.remove('light')
+            html.classList.add(theme);
+            html.classList.add("js");
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            let sidebar = null;
+            const sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            html.classList.remove('sidebar-visible');
+            html.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <!-- populated by js -->
+            <mdbook-sidebar-scrollbox class="sidebar-scrollbox"></mdbook-sidebar-scrollbox>
+            <noscript>
+                <iframe class="sidebar-iframe-outer" src="../../toc.html"></iframe>
+            </noscript>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="default_theme">Auto</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search (`/`)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="/ s" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Pecunia Docs</h1>
+
+                    <div class="right-buttons">
+                        <a href="../../print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="shadows"><a class="header" href="#shadows">Shadows</a></h1>
+<h3 id="abstracts_shadowsscss"><a class="header" href="#abstracts_shadowsscss"><code>abstracts/_shadows.scss</code></a></h3>
+<p>le fichier gère le système des ombres</p>
+<p><em><strong>Il reprend les éléments du DS sous figma</strong></em></p>
+<p><img src="https://github.com/user-attachments/assets/ac1b1b5c-4683-4996-b36f-33f396ea8614" alt="image" /></p>
+<pre><code class="language-scss">@use 'sass:map';
+
+$shadows: (
+  light: (
+    xs: (0px 1px 2px rgba(9, 9, 11, 0.05)),
+    sm: (0px 1px 3px rgba(9, 9, 11, 0.10), 0px 1px 2px rgba(9, 9, 11, 0.10)),
+    md: (0px 4px 6px rgba(9, 9, 11, 0.10), 0px 0px 4px rgba(9, 9, 11, 0.10)),
+    lg: (0px 4px 6px rgba(9, 9, 11, 0.10), 0px 4px 4px rgba(9, 9, 11, 0.20)),
+    xl: (0px 20px 25px rgba(9, 9, 11, 0.10), 0px 8px 10px rgba(9, 9, 11, 0.10)),
+    2xl: (0px 25px 50px rgba(9, 9, 11, 0.20)),
+    inner: (inset 0px 2px 4px 0px rgba(9, 9, 11, 0.05))
+  ),
+  dark: (
+    xs: (0px 1px 2px rgba(255, 255, 255, 0.05)),
+    sm: (0px 1px 3px rgba(255, 255, 255, 0.10), 0px 1px 2px rgba(255, 255, 255, 0.10)),
+    md: (0px 4px 6px rgba(255, 255, 255, 0.10), 0px 0px 4px rgba(255, 255, 255, 0.10)),
+    lg: (0px 4px 6px rgba(255, 255, 255, 0.10), 0px 4px 4px rgba(255, 255, 255, 0.20)),
+    xl: (0px 20px 25px rgba(255, 255, 255, 0.10), 0px 8px 10px rgba(255, 255, 255, 0.10)),
+    2xl: (0px 25px 50px rgba(255, 255, 255, 0.20)),
+    inner: (inset 0px 2px 4px 0px rgba(255, 255, 255, 0.05))
+  )
+);
+
+@mixin shadow($key, $theme: light) {
+  $theme-map: map.get($shadows, $theme);
+  $shadow: map.get($theme-map, $key);
+
+  @if $shadow {
+    box-shadow: $shadow;
+  } @else {
+    @warn "Shadow `#{$key}` not found for theme `#{$theme}`.";
+  }
+}
+</code></pre>
+<h4 id="la-map-shadows"><a class="header" href="#la-map-shadows">La map <code>$shadows</code></a></h4>
+<p>C'est une structure de données organisée en trois niveaux:</p>
+<ol>
+<li><strong>Premier niveau</strong>: Les thèmes (<code>light</code> et <code>dark</code>)</li>
+<li><strong>Deuxième niveau</strong>: Les tailles d'ombre (<code>xs</code>, <code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, <code>2xl</code>, <code>inner</code>)</li>
+<li><strong>Troisième niveau</strong>: Les valeurs d'ombres CSS (entre parenthèses)</li>
+</ol>
+<h4 id="le-mixin-shadow"><a class="header" href="#le-mixin-shadow">Le mixin <code>shadow</code></a></h4>
+<p>C'est une fonction réutilisable qui:</p>
+<ol>
+<li>Prend deux paramètres:
+<ul>
+<li><code>$key</code>: La taille de l'ombre (<code>xs</code>, <code>sm</code>, <code>md</code>, etc.)</li>
+<li><code>$theme</code>: Le thème à utiliser (<code>light</code> ou <code>dark</code>, avec <code>light</code> par défaut)</li>
+</ul>
+</li>
+<li>Récupère la bonne valeur d'ombre depuis la structure imbriquée</li>
+<li>L'applique comme <code>box-shadow</code> si elle existe</li>
+<li>Affiche un avertissement si l'ombre demandée n'existe pas</li>
+</ol>
+<h4 id="exemple-de-base"><a class="header" href="#exemple-de-base">Exemple de base</a></h4>
+<pre><code class="language-scss">.card {
+  // Ombre légère (sm) en thème clair (par défaut)
+  @include shadow(sm);
+}
+</code></pre>
+<h4 id="exemple-avec-thème-spécifique"><a class="header" href="#exemple-avec-thème-spécifique">Exemple avec thème spécifique</a></h4>
+<pre><code class="language-scss">.card-dark {
+  // Ombre moyenne (md) en thème sombre
+  @include shadow(md, dark);
+}
+</code></pre>
+<h4 id="exemple-avec-adaptation-au-thème-actif"><a class="header" href="#exemple-avec-adaptation-au-thème-actif">Exemple avec adaptation au thème actif</a></h4>
+<pre><code class="language-scss">// Pour un élément qui s'adapte au thème de l'application
+.adaptive-card {
+  // Style de base
+  background-color: white;
+  
+  // En thème clair
+  :host-context([data-theme='light']) &amp; {
+    @include shadow(md, light);
+  }
+  
+  // En thème sombre
+  :host-context([data-theme='dark']) &amp; {
+    background-color: #333;
+    @include shadow(md, dark);
+  }
+}
+</code></pre>
+<hr />
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="../../design_system/layout/flexbox.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
+
+                            <a rel="next prefetch" href="../../design_system/layout/exemple.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="../../design_system/layout/flexbox.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
+
+                    <a rel="next prefetch" href="../../design_system/layout/exemple.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="../../elasticlunr.min.js"></script>
+        <script src="../../mark.min.js"></script>
+        <script src="../../searcher.js"></script>
+
+        <script src="../../clipboard.min.js"></script>
+        <script src="../../highlight.js"></script>
+        <script src="../../book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+
+    </div>
+    </body>
+</html>
