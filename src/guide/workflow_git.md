@@ -2,14 +2,14 @@
 
 ## 1. Main Branch
 
-- `main: Production-ready code`
-- `dev: Integration branch for new features`
+- `main: Code de production`
+- `dev: Branche d'intégration pour les nouvelles features`
 
 ## 2. Feature workflow
 
-- Create a branch : `git checkout -b feat/your-feature` from a `main` branch
-- Push and open a pull request to dev
-- Merge Rebase, if you can, only after 2 approval review
+- Créez une branche : `git checkout -b feat/your-feature` depuis la branche `main`
+- Poussez votre travail et ouvrez une pull request pour la branche `dev`
+- Merge Rebase, si vous pouvez, après que 2 personnes ait validé votre travail
 
 ## Branching strategy schema
 
@@ -17,29 +17,29 @@
 
 ### Commit Messages Conventions
 
-#### Why use a structured commit format ?
+#### Pourquoi utiliser une format de commit structuré ?
 
-A clear and consistent commit message format improves readability, history tracking and automation (e.g., changelogs, release notes, etc)
+Un format de commit clair et cohérent améliorer la lisibilité, le suivi de l'historique et l'automatisation (par exemple, les changelogs, les notes de version, etc)
 
 #### Conventionnal commit format
 
 `<type>(<scope>): <message>`
 
-##### 🔷 Types of commits
+##### 🔷 Type de commits 
 
 | Type | Usages |
 | :------: | :-----:|
-| **feat** | A new feature. Correlates with MINOR in SemVer |
-| **fix** | A bug fix. Correlates with PATCH in SemVer |
-| **docs** | Documentation only changes |
-| **test** | Adding missing or correcting existing tests |
-| **build** | Changes that affect the build system or external dependencies (example scope: pip, docker, npm)
-| **refactor** | A code change that neither fixes a bug nor adds a feature |
-| **style** | Changes that do not affect the meaning of th code (white-space, formatting, missing semi-colons etc.) |
-| **perf** | A code change that improves performance |
-| **ci** | CI/CD related updates |
+| **feat** | Une nouvelle fonctionnalité. Corrélation avec MINOR dans SemVer |
+| **fix** | Correction d'un bug. Corrélation avec PATCH dans SemVer |
+| **docs** | Changements dans la documentation uniquement |
+| **test** | Ajouter des tests manquants ou corriger des tests existants |
+| **build** | Changements qui affectent le système de construction ou les dépendances externes (exemple : pip, docker, npm) |
+| **refactor** | Une modification du code qui ne corrige pas un bogue et n'ajoute pas de fonctionnalité. |
+| **style** | Changements qui n'affectent pas la signification du code (espaces blancs, formatage, points-virgules manquants, etc.) |
+| **perf** | Une modification du code qui améliore les performances |
+| **ci** | Modifications relatifs à la CI/CD|
 
-#### 📌 Examples
+#### 📌 Exemples
 
 ```git
 feat(auth): add JWT authentication middlewares

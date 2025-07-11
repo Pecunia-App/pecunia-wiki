@@ -1,17 +1,17 @@
 # Git Branch Strategy
 
-## 📌 Naming Conventions
+## 📌 Conventions de naming des branches
 
 | Prefix | Usage |
 | :-------: | :------:|
-| **feat/** | New feature development |
-| **fix/** | Bug fixes |
-| **hotfix/** | Critical productions fixes |
-| **docs/** | Documentation updates |
-| **test/** | Testing-relating work |
+| **feat/** | Développement de nouvelles fonctionnalités |
+| **fix/** | Correction de bugs |
+| **hotfix/** | Corrections de productions critiques |
+| **docs/** | Mise à jour de la documentation |
+| **test/** | Travaux liés aux tests |
 | **refactor/** | Code refactoring |
-| **chore/** | Maintenance and tooling |
-| **poc/** | Proof of concept for feasibility testing |
+| **chore/** | Maintenance et les tools |
+| **poc/** | Preuve de concept pour les essais de faisabilité |
 
 ## 🔷 Examples
 
