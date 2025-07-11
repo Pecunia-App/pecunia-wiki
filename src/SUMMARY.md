@@ -48,6 +48,7 @@
     - [Accessibilité](design_system/composants_ui/accessibilité.md)
   - [Boutons](design_system/composants_ui/boutons.md)
   - [Inputs](design_system/composants_ui/inputs.md)
+  - [link](design_system/composants_ui/link.md)
 
 # La CI/CD
 
