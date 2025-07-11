@@ -44,8 +44,23 @@
     - [Exemple: Un Bouton](design_system/layout/exemple.md)
 - [Composants UI](design_system/composants_ui/README.md)
   - [Icons](design_system/composants_ui/icons.md)
-    - [Listes des Icons](design_system/composants_ui/listes_icons.md)
+    - [Liste des Icons](design_system/composants_ui/listes_icons.md)
     - [Accessibilité](design_system/composants_ui/accessibilité.md)
   - [Boutons](design_system/composants_ui/boutons.md)
   - [Inputs](design_system/composants_ui/inputs.md)
+
+# La CI/CD
+
+- [Introduction](cicd/README.md)
+  - [Definition](cicd/definition.md)
+  - [Continuous Integration](cicd/ci.md)
+  - [Continuous Delivery](cicd/cd.md)
+- [La pipeline CI](cicd/pipeline_ci/README.md)
+  - [Frontend](cicd/pipeline_ci/frontend.md)
+  - [Backend](cicd/pipeline_ci/backend/backend.md)
+    - [Linting](cicd/pipeline_ci/backend/linting.md)
+    - [Formatting](cicd/pipeline_ci/backend/formatting.md)]
+    - [Compile and Test](cicd/pipeline_ci/backend/compile_test.md)
+- [La pipeline CD](cicd/pipeline_cd/README.md)
+  - [Example avec le Frontend](cicd/pipeline_cd/example_cd.md)
 
