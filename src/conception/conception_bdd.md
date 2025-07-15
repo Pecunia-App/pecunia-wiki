@@ -172,3 +172,217 @@ REUTILISER ( #nom\_portefeuille, #nom\_categorie )
 TRANSACTION ( montant, type, note, date\_de\_la\_transaction, #nom\_portefeuille, nom, #nom\_categorie, nom\_etiquette )
 
 UTILISATEUR ( email\_utilisateur, mot\_de\_passe, nom, prénom, photo\_de\_profil )
+
+### Diagramme de séquence :
+
+Nous avons utilisé le site [sequencediagram](https://sequencediagram.org/)
+
+Voici un CRUD pour les transactions avec les scripts pour la génération des diagrammes sur le site
+
+#### Créer une transaction
+
+##### diagramme:
+
+![](./images/transaction_create.png)
+
+---
+##### script:
+
+```
+title Création d'une transaction
+
+participant Utilisateur
+participant Frontend
+participant API
+participant DB
+
+Utilisateur->Frontend: Remplit formulaire "Nouvelle transaction"
+Frontend->API: POST /api/transactions (montant, catégorie, date, etc.)
+
+alt Utilisateur authentifié
+    API->API: Vérifie la validité des données (contrôles métiers et format)
+    alt Données valides et droits OK
+        API->DB: INSERT INTO transactions (...)
+        DB-->API: Retour nouvel ID
+        API-->Frontend: HTTP 201 + transaction JSON
+    else Données invalides
+        API-->Frontend: HTTP 400 Bad Request + message d'erreur
+    else Droits insuffisants
+        API-->Frontend: HTTP 403 Forbidden
+    else Erreur technique
+        API-->Frontend: HTTP 500 Internal Server Error
+    end
+else Non authentifié
+    API-->Frontend: HTTP 403 Forbidden
+end
+
+Frontend-->Utilisateur: Affiche message de confirmation ou erreur
+```
+
+---
+#### Consulter la liste des transactions
+
+##### diagramme:
+
+![](./images/transaction_get_all.png)
+
+---
+##### script:
+
+```
+title Consultation de la liste des transactions
+
+participant Utilisateur
+participant Frontend
+participant API
+participant DB
+
+Utilisateur->Frontend: Accède au dashboard
+Frontend->API: GET /api/transactions (filtres éventuels)
+
+alt Utilisateur authentifié
+    API->API: Vérifie les droits d'accès (appartenance utilisateur)
+    alt Droits OK
+        API->DB: SELECT * FROM transactions WHERE user_id = ? [et filtres éventuels]
+        DB-->API: Liste des transactions
+        API-->Frontend: HTTP 200 + JSON (liste des transactions)
+    else Droits insuffisants
+        API-->Frontend: HTTP 403 Forbidden
+    else Erreur technique
+        API-->Frontend: HTTP 500 Internal Server Error
+    end
+else Non authentifié
+    API-->Frontend: HTTP 403 Forbidden
+end
+
+Frontend-->Utilisateur: Affiche la liste ou message d'erreur
+
+```
+
+---
+#### Consulter une transaction avec un id
+
+##### diagramme:
+
+![](./images/transaction_get_by_id.png)
+
+---
+##### script:
+
+```
+title Consultation d'une transaction par ID
+
+participant Utilisateur
+participant Frontend
+participant API
+participant DB
+
+Utilisateur->Frontend: Accède à la page d'une transaction (id)
+Frontend->API: GET /api/transactions/:id
+
+alt Utilisateur authentifié
+    API->API: Vérifie l'existence de la transaction et les droits d'accès
+    alt Transaction existe et droits OK
+        API->DB: SELECT * FROM transactions WHERE id = ?
+        DB-->API: Données de la transaction
+        API-->Frontend: HTTP 200 + JSON (transaction)
+    else Transaction inexistante ou droits insuffisants
+        API-->Frontend: HTTP 403 Forbidden ou 404 Not Found
+    end
+    alt Erreur technique
+        API-->Frontend: HTTP 500 Internal Server Error
+    end
+else Non authentifié
+    API-->Frontend: HTTP 403 Forbidden
+end
+Frontend-->Utilisateur: Affiche les détails ou message d'erreur
+
+```
+
+---
+#### Modifier une transaction
+
+##### diagramme:
+
+![](./images/transaction_put.png)
+
+---
+##### script:
+
+```
+title Modification d'une transaction
+
+participant Utilisateur
+participant Frontend
+participant API
+participant DB
+
+Utilisateur->Frontend: Ouvre formulaire d'édition (transaction id)
+Frontend->API: PUT /api/transactions/:id (nouveaux champs)
+
+alt Utilisateur authentifié
+    API->API: Vérifie l'existence de la transaction et les droits d'accès
+    alt Transaction existe et droits OK
+        API->API: Valide les nouvelles données
+        alt Données valides
+            API->DB: UPDATE transactions SET ... WHERE id = ?
+            DB-->API: OK ou nombre lignes modifiées
+            API-->Frontend: HTTP 200 + transaction mise à jour
+        else Données invalides
+            API-->Frontend: HTTP 400 Bad Request + message d'erreur
+        else Erreur technique
+            API-->Frontend: HTTP 500 Internal Server Error
+        end
+    else Transaction inexistante ou droits insuffisants
+        API-->Frontend: HTTP 403 Forbidden ou 404 Not Found
+    end
+else Non authentifié
+    API-->Frontend: HTTP 403 Forbidden
+end
+
+Frontend-->Utilisateur: Affiche message de validation ou d’erreur
+
+```
+
+---
+#### Supprimer une transaction
+
+##### diagramme:
+
+![](./images/transaction_delete.png)
+
+---
+##### script:
+
+```
+title Suppression d'une transaction
+
+participant Utilisateur
+participant Frontend
+participant API
+participant DB
+
+Utilisateur->Frontend: Clique "Supprimer transaction"
+Frontend->API: DELETE /api/transactions/:id
+
+alt Utilisateur authentifié
+    API->API: Vérifie l'existence et l'appartenance de la transaction
+    alt Transaction existe et droits OK
+        API->DB: DELETE FROM transactions WHERE id = ?
+        DB-->API: OK ou nombre de lignes supprimées
+        API-->Frontend: HTTP 204 No Content
+    else Transaction inexistante ou droits insuffisants
+        API-->Frontend: HTTP 403 Forbidden ou 404 Not Found
+    end
+    alt Erreur technique
+        API-->Frontend: HTTP 500 Internal Server Error
+    end
+else Non authentifié
+    API-->Frontend: HTTP 403 Forbidden
+end
+
+Frontend-->Utilisateur: Affiche message "Transaction supprimée" ou erreur
+
+```
+
+---
