@@ -9,7 +9,7 @@
     - [Checkstyle](guide/tools/checkstyle.md)
     - [Javadoc](guide/tools/javadoc.md)
 - [Workflow Git](guide/workflow_git.md)
-- [Branching Strategy](guide/branching_strategy.md)]
+- [Branching Strategy](guide/branching_strategy.md)
 
 # Ressources pour le Titre
 - [Informations et Aides](titre/README.md)
@@ -60,8 +60,12 @@
   - [Frontend](cicd/pipeline_ci/frontend.md)
   - [Backend](cicd/pipeline_ci/backend/backend.md)
     - [Linting](cicd/pipeline_ci/backend/linting.md)
-    - [Formatting](cicd/pipeline_ci/backend/formatting.md)]
+    - [Formatting](cicd/pipeline_ci/backend/formatting.md)
     - [Compile and Test](cicd/pipeline_ci/backend/compile_test.md)
 - [La pipeline CD](cicd/pipeline_cd/README.md)
   - [Example avec le Frontend](cicd/pipeline_cd/example_cd.md)
 
+# L'API
+
+- [Introduction](api/README.md)
+  - [Swagger](api/swagger/swagger.md)
