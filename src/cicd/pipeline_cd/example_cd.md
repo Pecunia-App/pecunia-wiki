@@ -110,12 +110,11 @@ Le script bash est situé directemet sur le vps et se décompose ainsi :
 
 set -e
 
-echo "→ Pulling latest Docker image..."
-docker pull txrigxn/pecunia-front:latest
-docker pull txrigxn/pecunia-api:latest
-
 echo "→ Changing to project directory..."
 cd /home/pecunia/pecunia
+
+echo "→ Pulling latest Docker image..."
+docker compose pull backend frontend
 
 echo "→ Stopping running containers..."
 docker compose down

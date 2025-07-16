@@ -1,8 +1,8 @@
 # Continuous Integration
 
-CI est l'acronyme pour "Continuous Integration" ou **l'intégration continu** en francais.
+L'**intégration Continu** (CI) correspond à la mise en place de tests automatiques avant de pouvoir intégrer de nouvels modifications au code source en ligne.
 
-Ce processus d'automatisation facilite le merge fréquent des modifications de code vers la branche principales (dev ou main, à voir selon les worklows git des équipes).
+Ce processus d'automatisation permet de détecter rapidement les problèmes d'intégrations et les régressions.
 
 Les Github Actions permettent une **homogénéité** de notre codebase.
 
