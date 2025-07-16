@@ -67,7 +67,7 @@
     - [Configuration Serveur](cicd/pipeline_cd/config_server/README.md)
     - [Workflow de mise en ligne](cicd/pipeline_cd/config_server/workflow_mep.md)
     - [Le docker compose](cicd/pipeline_cd/config_server/deploy-compose.md)
-    - [Script de deploiement](src/cicd/pipeline_cd/config_server/script.md)
+    - [Script de deploiement](cicd/pipeline_cd/config_server/script.md)
   - [Récapitulatif](cicd/recap_cicd.md)
 
 # L'API
