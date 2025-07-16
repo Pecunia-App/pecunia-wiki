@@ -63,6 +63,10 @@
     - [Formatting](cicd/pipeline_ci/backend/formatting.md)
     - [Compile and Test](cicd/pipeline_ci/backend/compile_test.md)
 - [La pipeline CD](cicd/pipeline_cd/README.md)
+  - [Deploiement](cicd/pipeline_cd/deploy.md)
+    - [Configuration Serveur](cicd/pipeline_cd/config_server/README.md)
+    - [Workflow de mise en ligne](cicd/pipeline_cd/config_server/workflow_mep.md)
+    - [Le docker compose](/src/cicd/pipeline_cd/config_server/deploy-compose.md)
   - [Example avec le Frontend](cicd/pipeline_cd/example_cd.md)
 
 # L'API

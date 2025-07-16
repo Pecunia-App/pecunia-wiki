@@ -1,6 +1,6 @@
 # La pipeline CD
 
-Pour savoir comment a été gérer le serveur dédié (vps ou serveur maison) pour ce projet, vous pouvez aller sur cette [page](./vps.md).
+Pour savoir comment a été gérer le serveur dédié (vps ou serveur maison) pour ce projet, vous pouvez aller sur cette [page](./deploy.md).
 
 Pour le projet, nous utilisons la containerisation avec Docker et afin d'orchestrer nos containeurs, nous utilisons docker compose.
 
