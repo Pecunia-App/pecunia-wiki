@@ -72,8 +72,9 @@ Settings -> Editor -> Code Style -> Java
 Puis vous allez prendre cette configuration ci-dessous :
 
 ![part1](../images/code-style-part1.png)
+
 > [!WARNING]
-> Il ne doit rien avoir dans la section "Packages to Use Import with '*'"
+> Il ne doit rien avoir dans la section "Packages to Use Import with '*'
 
 ![part2](../images/code-style-part2.png) 
 ![part3](../images/code-style-part3.png) 
