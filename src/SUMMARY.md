@@ -6,7 +6,7 @@
 
 - [Installation](guide/tools/README.md)
     - [Pre-commit // Commitizen](guide/tools/precommit_commitizen.md)
-    - [Google-java-format](guide/tools/google-java-format.md)
+    - [Google Java Format](guide/tools/google-java-format.md)
     - [Checkstyle](guide/tools/checkstyle.md)
     - [Javadoc](guide/tools/javadoc.md)
 - [Workflow Git](guide/workflow_git.md)
@@ -68,7 +68,7 @@
     - [Configuration Serveur](cicd/pipeline_cd/config_server/README.md)
     - [Workflow de mise en ligne](cicd/pipeline_cd/config_server/workflow_mep.md)
     - [Le docker compose](cicd/pipeline_cd/config_server/deploy-compose.md)
-    - [Script de deploiement](/cicd/pipeline_cd/config_server/script.md)
+    - [Script de deploiement](cicd/pipeline_cd/config_server/script.md)
   - [Récapitulatif](cicd/recap_cicd.md)
 
 # L'API
