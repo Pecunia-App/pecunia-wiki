@@ -9,7 +9,7 @@ Ici, on va vouloir autoriser les ports concernant :
 - 22/tcp Ipv4 et Ipv6, utiliser pour la connection en **SSH**
 - 443 Ipv4 et Ipv6, utiliser pour la connection **https**
 
-source: [How ton config ufw](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu) 
+source: [How to config ufw](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu) 
 
 ## Fail2ban
 

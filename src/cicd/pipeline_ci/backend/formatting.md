@@ -18,5 +18,8 @@ jobs:
       - uses: actions/checkout@v4
       - uses: axel-op/googlejavaformat-action@v4
         with:
-          args: "--skip-sorting-imports --replace"
+          args:"--replace"
+          skip-commit: true
+      - name: Print diffs
+        run: git --no-pager diff --exit-code
 ```

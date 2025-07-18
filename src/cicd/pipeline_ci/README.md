@@ -4,4 +4,4 @@ Pour mettre en place une CI côté [backend](./backend/backend.md) ou [frontend]
 
 ![fichier workflows github](./images/workflows.png) 
 
-On va y définir un **workflow** chargé de lancer tous les tests du bakcend ou du frontend.
+On va y définir un **workflow** chargé de lancer tous les tests du backend ou du frontend.
