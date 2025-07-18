@@ -9,4 +9,4 @@ Ce chaptire présente l'Application Programming Interface Pecunia dans son ensem
 
 ## Objectif
 
-Mise à disposition d'une API sécurisée pour client.
+Mise à disposition d'une API sécurisée pour client avec le framework spring.

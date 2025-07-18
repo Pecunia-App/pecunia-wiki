@@ -46,7 +46,7 @@ Voici quelques exemples d'utilisation de notre API avec Swagger UI :
     - Vous devriez voir la réponse avec les données créées.
     - Vous pouvez voir l'utilisateur dans la response body.
 
-    2. **Authentifiez-vous** :
+2. **Authentifiez-vous** :
     - Trouvez l'endpoint `POST /auth/login`.
     - Cliquez sur le bouton "Try it out".
     - Entrez les données nécessaires dans le corps de la requête :

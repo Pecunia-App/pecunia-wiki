@@ -74,4 +74,5 @@
 # L'API
 
 - [Introduction](api/README.md)
+  - [Spring](api/spring/spring.md)
   - [Swagger](api/swagger/swagger.md)
