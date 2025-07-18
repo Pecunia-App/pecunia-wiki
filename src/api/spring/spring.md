@@ -1,175 +1,168 @@
+# 🌱 Spring
 
-# Sring 
-
-## Présentation.
-Spring est un framework open source pour Java, largement utilisé dans le développement d'applications d'entreprise. Il fournit une infrastructure robuste, modulaire et extensible, permettant de concevoir des applications maintenables, testables et évolutives.
-
-
-## Avantages
-
-### Popularité et maturité du framework
-Spring est l’un des frameworks les plus utilisés dans le monde Java. Il est largement documenté, activement maintenu et bénéficie d’une grande communauté. Cela permet un accès rapide aux bonnes pratiques, à des solutions éprouvées et à des bibliothèques fiables.
-
-
-### 🧱 Architecture
-
-L’application suit une architecture en couches, respectant les bonnes pratiques de séparation des responsabilités et de maintenabilité. Chaque couche a un rôle précis dans le fonctionnement global de l’application.
+## Présentation
+**Spring** est un framework Java open source, largement utilisé pour développer des applications d’entreprise.  
+Il fournit une infrastructure **robuste**, **modulaire** et **extensible**, qui permet de créer des applications **maintenables**, **testables** et **scalables**.
 
 ---
 
-#### 📂 controller
+## ✅ Avantages
 
-Contient les **contrôleurs REST** qui exposent les endpoints de l'API.  
-Ils reçoivent les requêtes HTTP, délèguent le traitement à la couche service, et renvoient les réponses HTTP.
+### 📈 Popularité et maturité du framework
+Spring est l’un des frameworks Java les plus répandus. Il est :
 
-**Exemples de classes :**
-- `UserController`
-- `AuthController`
+- Massivement documenté  
+- Activement maintenu  
+- Soutenu par une large communauté
 
-**Responsabilités :**
-- Mapper les routes HTTP (`@GetMapping`, `@PostMapping`, etc.)
-- Valider les entrées utilisateur
-- Gérer les codes de réponse (`200 OK`, `404 Not Found`, etc.)
+👉 Cela facilite l’adoption de bonnes pratiques, l’intégration de bibliothèques fiables et la résolution rapide des problèmes.
 
 ---
 
-#### 📂 dto (Data Transfer Object)
+## 🧱 Architecture en couches
 
-Contient les objets utilisés pour **transporter les données entre les couches**, notamment entre la couche `controller` et la couche `service`.
-
-**Exemples de classes :**
-- `UserDTO`
-- `UserRegistrationDTO`
-
-**Responsabilités :**
-- Encapsuler les données entrantes (POST, PUT)
-- Contrôler les champs exposés en sortie (GET)
-- Éviter l'exposition directe des entités (`model`)
+L’application suit une architecture en couches, favorisant la **séparation des responsabilités** et la **maintenabilité**.  
+Chaque couche a un rôle spécifique :
 
 ---
 
-#### 📂 exception
+### 📂 controller
 
-Contient la gestion centralisée des erreurs.
+Gère les **requêtes HTTP** (REST) et renvoie les réponses appropriées.  
+Utilise les annotations comme `@RestController`, `@GetMapping`, `@PostMapping`, etc.
 
-**Exemples de classes :**
-- `ResourceNotFoundException`
-- `GlobalExceptionHandler` (`@ControllerAdvice`)
+**Exemples** : `UserController`, `AuthController`
 
-**Responsabilités :**
-- Définir les exceptions personnalisées
-- Gérer les erreurs globalement (retourner un message d’erreur clair avec le bon code HTTP)
-- Éviter les erreurs techniques exposées aux utilisateurs
+**Responsabilités** :
 
----
-
-#### 📂 mapper
-
-Contient les classes responsables de la **conversion entre les entités (`model`) et les DTOs (`dto`)**.
-
-**Exemples de classes :**
-- `UserMapper`
-
-**Responsabilités :**
-- Convertir un `User` (entité) en `UserResponseDTO`
-- Convertir un `UserDTO` en `User` pour l’enregistrement
-- Séparer la logique de transformation de données
+- Déléguer la logique métier aux services  
+- Valider les entrées utilisateur  
+- Retourner les statuts HTTP adaptés (`200`, `404`, etc.)
 
 ---
 
-#### 📂 model
+### 📂 dto (Data Transfer Object)
 
-Contient les **entités JPA** représentant les tables de la base de données.
+Permet de **transporter les données** entre les couches sans exposer les entités.
 
-**Exemples de classes :**
-- `User`
-- `Transaction`
+**Exemples** : `UserDTO`, `UserRegistrationDTO`
 
-**Responsabilités :**
-- Définir la structure des objets persistés
-- Spécifier les relations (OneToMany, ManyToOne, etc.)
-- Définir les contraintes de validation (via `@NotNull`, etc.)
+**Responsabilités** :
 
----
-
-#### 📂 repository
-
-Contient les interfaces qui permettent l’accès aux données via **Spring Data JPA**.
-
-**Exemples de classes :**
-- `UserRepository extends JpaRepository<User, Long>`
-
-**Responsabilités :**
-- Accès à la base de données
-- Requêtes CRUD standard ou personnalisées (`findByEmail`, etc.)
-- Séparation des opérations d’accès aux données de la logique métier
+- Structurer les données entrantes/sortantes  
+- Contrôler ce qui est exposé à l’API  
+- Sécuriser et simplifier les échanges
 
 ---
 
-#### 📂 security
+### 📂 exception
 
-Contient la configuration de **la sécurité de l’application** (authentification, autorisation, etc.).
+Centralise la **gestion des erreurs**.
 
-**Exemples de classes :**
-- `SecurityConfig`
-- `JwtAuthenticationFilter`
-- `UserDetailsServiceImpl`
+**Exemples** : `ResourceNotFoundException`, `GlobalExceptionHandler`
 
-**Responsabilités :**
-- Définir les règles d’accès (routes protégées)
-- Gérer les filtres de sécurité (JWT, session, etc.)
-- Configurer les utilisateurs, rôles et droits
+**Responsabilités** :
+
+- Définir des exceptions personnalisées  
+- Gérer globalement les erreurs (`@ControllerAdvice`)  
+- Fournir des réponses claires aux utilisateurs
 
 ---
 
-#### 📂 service
+### 📂 mapper
 
-Contient la **logique métier** de l’application.
+Convertit les données entre les entités (`model`) et les DTOs (`dto`).
 
-**Exemples de classes :**
-- `UserService`
-- `TransactionService`
+**Exemple** : `UserMapper`
 
-**Responsabilités :**
-- Implémenter les règles métiers
-- Orchestrer les appels vers les repositories, mappers et autres services
-- Fournir une API métier aux contrôleurs
+**Responsabilités** :
 
-Cela facilite la lisibilité du code, la réutilisabilité des composants et la testabilité de chaque couche.
+- Séparer la logique de transformation  
+- Faciliter les conversions bidirectionnelles
 
 ---
 
-### Injection de dépendances (IoC)
-Spring repose sur le principe de l'inversion de contrôle (IoC) et l’injection de dépendances, ce qui permet de réduire les couplages entre les composants. Cela améliore la flexibilité du code et facilite les tests unitaires.
+### 📂 model
 
-#### 🎯 Avantages de l'injection de dépendances
+Contient les **entités JPA** qui représentent les tables de la base de données.
 
-- **Réduction du couplage** entre les classes : chaque composant dépend d’abstractions plutôt que de classes concrètes.
-- **Code plus modulaire et testable** : nous pouvons facilement simuler (mock) des composants pour tester isolément la logique métier.
-- **Centralisation de la configuration** : le cycle de vie des objets est géré automatiquement par Spring.
+**Exemples** : `User`, `Transaction`
 
-#### 🛠️ Utilisation dans notre projet avec Maven
+**Responsabilités** :
 
-Nous utilisons **Maven** pour la gestion de notre projet, ce qui nous permet de :
+- Définir les champs persistés  
+- Spécifier les relations JPA  
+- Ajouter les contraintes de validation
 
-- **Déclarer les dépendances Spring** dans le fichier `pom.xml` :
+---
+
+### 📂 repository
+
+Gère l’accès aux données avec **Spring Data JPA**.
+
+**Exemple** : `UserRepository extends JpaRepository<User, Long>`
+
+**Responsabilités** :
+
+- Fournir les opérations CRUD  
+- Définir des requêtes personnalisées (`findByEmail`, etc.)
+
+---
+
+### 📂 security
+
+Configure la **sécurité de l’application** : authentification, autorisation, filtres.
+
+**Exemples** : `SecurityConfig`, `JwtAuthenticationFilter`, `CustomUserDetailsService`
+
+**Responsabilités** :
+
+- Définir les règles d’accès  
+- Gérer le token JWT  
+- Sécuriser les endpoints
+
+---
+
+### 📂 service
+
+Contient la **logique métier**.
+
+**Exemples** : `UserService`, `TransactionService`
+
+**Responsabilités** :
+
+- Orchestrer les appels aux repositories  
+- Implémenter les règles métier  
+- Fournir une API métier aux `controller`
+
+---
+
+## ♻️ Injection de dépendances (IoC)
+
+Spring utilise **l’inversion de contrôle (IoC)** et l’**injection de dépendances**, ce qui permet :
+
+- 🔁 De **réduire le couplage** entre les composants  
+- 🧪 De **faciliter les tests unitaires**  
+- 🧠 De **centraliser la configuration des beans**
+
+### Exemple de dépendances Maven :
 
 ```xml
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter</artifactId>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter</artifactId>
 </dependency>
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-data-jpa</artifactId>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-data-jpa</artifactId>
 </dependency>
 <dependency>
-    <groupId>org.springframework.boot</groupId>
-    <artifactId>spring-boot-starter-security</artifactId>
+  <groupId>org.springframework.boot</groupId>
+  <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
 ```
 
-### Orientation RESTful
+### 🌐 Orientation RESTful
 Spring facilite le développement d’API REST, devenues essentielles dans les architectures modernes, notamment les applications web SPA (Single Page Application) ou mobiles. L'utilisation des annotations comme @RestController, @GetMapping, @PostMapping, etc., rend le développement rapide et clair.
 
 ### 🗄️ Gestion simplifiée de la base de données
@@ -191,7 +184,7 @@ Grâce à **Spring Data JPA**, nous pouvons :
   ```
 
 
-### Facilité de tests
+### 🧪 Facilité de tests
 Spring propose de nombreux outils et annotations pour les tests unitaires et tests d’intégration (@SpringBootTest, @MockBean, etc.), ce qui garantit la qualité logicielle du projet.
 
 ---
@@ -232,7 +225,7 @@ src
     │           │   ├── PasswordMatchersValidator.java
     │           │   ├── PasswordMatches.java
     │           │   ├── SecurityConfig.java
-    │           │   └── TockenBlackList.java
+    │           │   └── TokenBlackList.java
     │           │
     │           ├── service
     │           │   ├── CustomUserDetailsService.java
