@@ -76,3 +76,8 @@
 - [Introduction](api/README.md)
   - [Spring](api/spring/spring.md)
   - [Swagger](api/swagger/swagger.md)
+- [Docs des différents CRUD](api/crud/intro.md)
+  - [User](api/crud/user-crud.md)
+  - [Wallet](api/crud/wallet-crud.md)
+  - [Transaction](api/crud/transaction-crud.md)
+  - [Tag](api/crud/tag-crud.md)
