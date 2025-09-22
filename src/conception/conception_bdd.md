@@ -13,6 +13,9 @@ LucidChart : [https://lucid.app/lucidchart/c0417efa-c71c-479d-9d3f-c88048240679/
 ![UML - Diagramme cas utilisation](images/uml-diagramme-cas-utilisation.png) 
 
 * * *
+### Diagramme de classe :
+
+LucidChart: ![uml-diagramme-de-classe](images/uml-diagramme-de-classe.png) 
 
 ### Dictionnaire de données :
 
