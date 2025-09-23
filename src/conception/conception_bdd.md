@@ -15,7 +15,108 @@ LucidChart : [https://lucid.app/lucidchart/c0417efa-c71c-479d-9d3f-c88048240679/
 * * *
 ### Diagramme de classe :
 
-LucidChart: ![uml-diagramme-de-classe](images/uml-diagramme-de-classe.png) 
+![uml-diagramme-de-classe](images/uml-diagramme-de-classe.png) 
+```mermaid
+---
+config:
+  layout: elk
+---
+classDiagram
+direction LR
+    class Money {
+	    -long amount
+	    -Currency currency
+	    +euros(double) Money$
+	    +dollars(double) Money$
+	    +add(Money) Money
+	    +subtract(Money) Money
+	    +multiply(BigDecimal) Money
+	    +greaterThan(Money) boolean
+	    +amount() BigDecimal
+	    +currency() Currency
+    }
+    class CategoryType {
+	    DEBIT
+	    CREDIT
+    }
+    class User {
+	    +id : number
+	    +lastName : string
+	    +firstName : string
+	    +email : string
+	    +password : string
+	    +profilePicture : ProfilePicture
+	    +wallet : Wallet
+	    +providers : Set
+    }
+    class ProfilePicture {
+	    +id : number
+	    +picture : mediumblob
+    }
+    class Wallet {
+	    +id : number
+	    +name : string
+	    +currency : string
+	    +amountBalance : Money
+	    +user : User
+    }
+    class Provider {
+	    +id : number
+	    +providerName : string
+	    +user : User
+    }
+    class Transaction {
+	    +id : number
+	    +amount: Money
+	    +note : string
+	    +wallet : Wallet
+	    +provider : Provider
+	    +category : Category
+	    +tags : Set
+	    getCategoryType() CategoryType
+    }
+    class Category {
+	    +id : number
+	    +categoryName : string
+	    +icon : string
+	    +color : string
+	    +isGlobal : boolean
+	    +type : CategoryType
+	    +user : User
+	    +transactions : Set
+    }
+    class Tag {
+	    +id : number
+	    +tagName : string
+    }
+    class BaseEntity {
+	    +createdAt : LocalDateTime
+	    +updatedAt : LocalDateTime
+    }
+
+	<<ValueObject>> Money
+	<<enumeration>> CategoryType
+	<<abstract>> BaseEntity
+
+    Transaction "0..1" --> "*" Provider : associate with
+    Transaction "*" --> "*" Tag : may contain
+    User "1..1" --o "*" Provider : create
+    User "1" --o "0..1" Wallet : own
+    User "1" --o "1" ProfilePicture : load
+    User "*" --> "1" Category : modify
+    Wallet "*" --o "0..1" Transaction : has
+    Transaction "1" --> "*" Category : include
+    Wallet *-- Money
+    Transaction *-- Money
+    Category *-- CategoryType
+    BaseEntity <|-- User
+    BaseEntity <|-- Wallet
+    BaseEntity <|-- Transaction
+    BaseEntity <|-- Tag
+    BaseEntity <|-- Category
+    BaseEntity <|-- Provider
+```
+
 
 ### Dictionnaire de données :
 

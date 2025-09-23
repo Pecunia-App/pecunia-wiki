@@ -19,9 +19,15 @@
       - [Sitemap](titre/docs-titre/sitemap.md)
       - [Product Backlog](titre/docs-titre/product_backlog.md)
 
-# Conception
+# Conception et modélisation
 
 - [Conception BDD](conception/conception_bdd.md)
+- [Introduction](conception/README.md) 
+- [Schéma conception UML](conception/schema-conception-uml/README.md)
+  - [Diagramme de cas d'utilisation](conception/schema-conception-uml/diagramme-cas-utilisation.md)
+  - [Diagramme de classes](conception/schema-conception-uml/diagramme-de-classes.md)
+  - [Diagramme de séquence](conception/schema-conception-uml/diagramme-de-sequence.md)
+
 
 # Design System
 
