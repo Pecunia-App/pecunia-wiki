@@ -15,7 +15,6 @@ LucidChart : [https://lucid.app/lucidchart/c0417efa-c71c-479d-9d3f-c88048240679/
 * * *
 ### Diagramme de classe :
 
-![uml-diagramme-de-classe](images/uml-diagramme-de-classe.png) 
 ```mermaid
 ---
 config:
@@ -23,98 +22,105 @@ config:
 ---
 classDiagram
 direction LR
-    class Money {
-	    -long amount
-	    -Currency currency
-	    +euros(double) Money$
-	    +dollars(double) Money$
-	    +add(Money) Money
-	    +subtract(Money) Money
-	    +multiply(BigDecimal) Money
-	    +greaterThan(Money) boolean
-	    +amount() BigDecimal
-	    +currency() Currency
-    }
-    class CategoryType {
-	    DEBIT
-	    CREDIT
-    }
-    class User {
-	    +id : number
-	    +lastName : string
-	    +firstName : string
-	    +email : string
-	    +password : string
-	    +profilePicture : ProfilePicture
-	    +wallet : Wallet
-	    +providers : Set
-    }
-    class ProfilePicture {
-	    +id : number
-	    +picture : mediumblob
-    }
-    class Wallet {
-	    +id : number
-	    +name : string
-	    +currency : string
-	    +amountBalance : Money
-	    +user : User
-    }
-    class Provider {
-	    +id : number
-	    +providerName : string
-	    +user : User
-    }
-    class Transaction {
-	    +id : number
-	    +amount: Money
-	    +note : string
-	    +wallet : Wallet
-	    +provider : Provider
-	    +category : Category
-	    +tags : Set
-	    getCategoryType() CategoryType
-    }
-    class Category {
-	    +id : number
-	    +categoryName : string
-	    +icon : string
-	    +color : string
-	    +isGlobal : boolean
-	    +type : CategoryType
-	    +user : User
-	    +transactions : Set
-    }
-    class Tag {
-	    +id : number
-	    +tagName : string
-    }
+
     class BaseEntity {
-	    +createdAt : LocalDateTime
-	    +updatedAt : LocalDateTime
+        <<abstract>>
+        +id : number
+        +createdAt : LocalDateTime
+        +updatedAt : LocalDateTime
     }
 
-	<<ValueObject>> Money
-	<<enumeration>> CategoryType
-	<<abstract>> BaseEntity
+    class Money {
+        <<ValueObject>>
+        -amount : BigDecimal
+        -currency : Currency
+        +euros(double) Money$
+        +dollars(double) Money$
+        +add(Money) Money
+        +subtract(Money) Money
+        +multiply(BigDecimal) Money
+        +greaterThan(Money) boolean
+        +amount() BigDecimal
+        +currency() Currency
+    }
 
-    Transaction "0..1" --> "*" Provider : associate with
-    Transaction "*" --> "*" Tag : may contain
-    User "1..1" --o "*" Provider : create
-    User "1" --o "0..1" Wallet : own
-    User "1" --o "1" ProfilePicture : load
-    User "*" --> "1" Category : modify
-    Wallet "*" --o "0..1" Transaction : has
-    Transaction "1" --> "*" Category : include
+    class Currency {
+        +code : string
+        +symbol : string
+    }
+
+    class CategoryType {
+        <<enumeration>>
+        DEBIT
+        CREDIT
+    }
+
+    class User {
+        +lastName : string
+        +firstName : string
+        +email : string
+        +password : string
+        +profilePicture : ProfilePicture
+        +wallet : Wallet
+        +providers : Set
+    }
+
+    class ProfilePicture {
+        +picture : BinaryData
+    }
+
+    class Wallet {
+        +name : string
+        +currency : Currency
+        +amountBalance : Money
+    }
+
+    class Provider {
+        +providerName : string
+    }
+
+    class Transaction {
+        +amount : Money
+        +note : string
+        getCategoryType() CategoryType
+    }
+
+    class Category {
+        +categoryName : string
+        +icon : string
+        +color : string
+        +isGlobal : boolean
+        +type : CategoryType
+    }
+
+    class Tag {
+        +tagName : string
+    }
+
+    %% ======= Relations =======
+    User "1" -- "1" ProfilePicture : has
+    User "1" -- "1" Wallet : owns
+    User "1" -- "*" Provider : creates
+    User "1" *-- "*" Tag : creates (owned)
+    User "1" -- "*" Category : creates / modifies
+
+    Wallet "1" -- "0..*" Transaction : contains
+    Transaction "1" --> "0..1" Provider : associated with
+    Transaction "1" --> "1" Category : classified as
+    Transaction "1" --> "0..*" Tag : tagged with
+
     Wallet *-- Money
     Transaction *-- Money
+    Money *-- Currency
     Category *-- CategoryType
+
     BaseEntity <|-- User
     BaseEntity <|-- Wallet
     BaseEntity <|-- Transaction
     BaseEntity <|-- Tag
     BaseEntity <|-- Category
     BaseEntity <|-- Provider
+    BaseEntity <|-- ProfilePicture
 ```
 
 
