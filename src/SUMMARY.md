@@ -56,6 +56,8 @@
   - [Boutons](design_system/composants_ui/boutons.md)
   - [Inputs](design_system/composants_ui/inputs.md)
   - [link](design_system/composants_ui/link.md)
+- [Librairies](design_system/librairies/README.md)
+  - [NG-ZORRO](design_system/librairies/ng-zorro.md)
 
 # La CI/CD
 
